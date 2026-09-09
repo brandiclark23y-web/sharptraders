@@ -30,4 +30,157 @@
         <div class="admin-sidebar">
             <nav class="admin-nav">
                 <a href="#overview" class="admin-nav-item active" onclick="switchAdminTab('overview', this)">
-                    <span
+                    <span>📊</span> Dashboard
+                </a>
+                <a href="#conversations" class="admin-nav-item" onclick="switchAdminTab('conversations', this)">
+                    <span>💬</span> Conversations
+                </a>
+                <a href="#customers" class="admin-nav-item" onclick="switchAdminTab('customers', this)">
+                    <span>👥</span> Customers
+                </a>
+                <a href="#products" class="admin-nav-item" onclick="switchAdminTab('products', this)">
+                    <span>📦</span> Products
+                </a>
+                <a href="#orders" class="admin-nav-item" onclick="switchAdminTab('orders', this)">
+                    <span>🛒</span> Orders
+                </a>
+                <a href="#performance" class="admin-nav-item" onclick="switchAdminTab('performance', this)">
+                    <span>📈</span> Performance
+                </a>
+                <a href="#blog" class="admin-nav-item" onclick="switchAdminTab('blog', this)">
+                    <span>📝</span> Blog
+                </a>
+                <a href="#faq" class="admin-nav-item" onclick="switchAdminTab('faq', this)">
+                    <span>❓</span> FAQ
+                </a>
+                <a href="#settings" class="admin-nav-item" onclick="switchAdminTab('settings', this)">
+                    <span>⚙️</span> Settings
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="admin-main">
+            <!-- Overview Tab -->
+            <div id="overviewTab" class="admin-tab active">
+                <h2>Dashboard Overview</h2>
+                <div class="admin-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="adminTotalRevenue">$0</div>
+                        <div class="stat-label">Total Revenue</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="adminTotalOrders">0</div>
+                        <div class="stat-label">Total Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="adminPendingOrders">0</div>
+                        <div class="stat-label">Pending Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="adminCompletedOrders">0</div>
+                        <div class="stat-label">Completed Orders</div>
+                    </div>
+                </div>
+                
+                <div class="admin-stats-grid mt-4">
+                    <div class="stat-card">
+                        <div class="stat-value" id="adminTotalCustomers">0</div>
+                        <div class="stat-label">Total Customers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="adminNewConversations">0</div>
+                        <div class="stat-label">New Conversations</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="adminActiveConversations">0</div>
+                        <div class="stat-label">Active Conversations</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="adminTotalProducts">0</div>
+                        <div class="stat-label">Total Products</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conversations Tab -->
+            <div id="conversationsTab" class="admin-tab">
+                <h2>Conversations</h2>
+                <div id="adminConversationsList">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- Customers Tab -->
+            <div id="customersTab" class="admin-tab">
+                <h2>Customers</h2>
+                <div id="adminCustomersList">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- Products Tab -->
+            <div id="productsTab" class="admin-tab">
+                <div class="flex justify-between items-center mb-4">
+                    <h2>Products</h2>
+                    <button class="btn btn-primary" onclick="AdminManager.showAddProductForm()">Add EA</button>
+                </div>
+                <div id="adminProductsList">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- Orders Tab -->
+            <div id="ordersTab" class="admin-tab">
+                <h2>Orders</h2>
+                <div id="adminOrdersList">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- Performance Tab -->
+            <div id="performanceTab" class="admin-tab">
+                <h2>Performance Management</h2>
+                <div id="adminPerformanceList">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- Blog Tab -->
+            <div id="blogTab" class="admin-tab">
+                <h2>Blog Management</h2>
+                <div id="adminBlogList">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- FAQ Tab -->
+            <div id="faqTab" class="admin-tab">
+                <h2>FAQ Management</h2>
+                <div id="adminFaqList">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- Settings Tab -->
+            <div id="settingsTab" class="admin-tab">
+                <h2>Settings</h2>
+                <div id="adminSettings">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/admin.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AdminManager.init();
+        });
+    </script>
+</body>
+</html>
