@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - EA Marketplace</title>
+    <meta name="description" content="Contact our support team for assistance.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <div class="navbar-brand">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="navbar-logo">EA</div>
+                    <span class="navbar-brand-text">EAMarket</span>
+                </a>
+            </div>
+            
+            <div class="navbar-menu" id="navbarMenu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="eas.html" class="navbar-link">EAs</a>
+                <a href="compare.html" class="navbar-link">Compare</a>
+                <a href="performance.html" class="navbar-link">Performance</a>
+                <a href="how-it-works.html" class="navbar-link">How It Works</a>
+                <a href="learn.html" class="navbar-link">Learn</a>
+                <a href="faq.html" class="navbar-link">FAQ</a>
+                <a href="contact.html" class="navbar-link">Contact</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <a href="account/dashboard.html" class="btn btn-ghost btn-sm" data-sign-in>Sign In</a>
+                <a href="eas.html" class="btn btn-primary btn-sm">Explore EAs</a>
+                <button class="btn btn-ghost btn-icon mobile-menu-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Header -->
+    <section class="hero" style="padding-top:100px;padding-bottom:40px;">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p class="text-secondary">We're here to help with any questions</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-2 gap-8">
+                <!-- Contact Info -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Get in Touch</h3>
+                        <p class="text-secondary mb-4">Choose the method that works best for you</p>
+                        
+                        <div class="mb-4">
+                            <h4>💬 Live Chat</h4>
+                            <p class="text-sm text-secondary">Chat with our team directly from the website</p>
+                            <button class="btn btn-primary mt-2" onclick="startGeneralChat()">Start Chat</button>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4>📧 Email</h4>
+                            <p class="text-sm text-secondary">support@eamarket.com</p>
+                        </div>
+                        
+                        <div>
+                            <h4>❓ FAQ</h4>
+                            <p class="text-sm text-secondary">Check our frequently asked questions</p>
+                            <a href="faq.html" class="btn btn-outline mt-2">View FAQ</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Send a Message</h3>
+                        <form onsubmit="submitContactForm(event)">
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-input" id="contactName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-input" id="contactEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Subject</label>
+                                <input type="text" class="form-input" id="contactSubject" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-textarea" id="contactMessage" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="footer-bottom-text">© 2024 EAMarket. All rights reserved.</p>
+                <p class="footer-risk">Risk Warning: Trading foreign exchange carries a high level of risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget minimized" id="chatWidget">
+        <div class="chat-widget-header" onclick="toggleChatWidget()">
+            <div class="flex items-center gap-2">
+                <span class="text-sm font-medium">Chat with Seller</span>
+            </div>
+            <button class="chat-widget-minimize">−</button>
+        </div>
+        <div class="chat-widget-body" id="chatBody" style="display:none;"></div>
+        <div class="chat-widget-input" style="display:none;">
+            <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="handleChatKeyPress(event)">
+            <button class="btn btn-primary btn-sm" onclick="sendChatMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/chat.js"></script>
+    
+    <script>
+        function submitContactForm(event) {
+            event.preventDefault();
+            showToast('Message sent successfully! We will respond shortly.', 'success');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
