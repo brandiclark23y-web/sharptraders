@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EA Details - EA Marketplace</title>
+    <meta name="description" content="Expert Advisor details and performance information.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="flex items-center gap-2">
+                    <div class="navbar-logo">EA</div>
+                    <span class="navbar-brand-text">EAMarket</span>
+                </a>
+            </div>
+            
+            <div class="navbar-menu" id="navbarMenu">
+                <a href="../index.html" class="navbar-link">Home</a>
+                <a href="../eas.html" class="navbar-link">EAs</a>
+                <a href="../compare.html" class="navbar-link">Compare</a>
+                <a href="../performance.html" class="navbar-link">Performance</a>
+                <a href="../learn.html" class="navbar-link">Learn</a>
+                <a href="../how-it-works.html" class="navbar-link">How It Works</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <a href="../account/dashboard.html" class="btn btn-ghost btn-sm" data-sign-in>Sign In</a>
+                <a href="../eas.html" class="btn btn-primary btn-sm">Explore EAs</a>
+                <button class="btn btn-ghost btn-icon mobile-menu-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Details -->
+    <section class="hero" style="padding-top:100px;padding-bottom:40px;">
+        <div class="container">
+            <div id="productDetails">
+                <!-- Product details loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="footer-bottom-text">© 2024 EAMarket. All rights reserved.</p>
+                <p class="footer-risk">
+                    Risk Warning: Trading foreign exchange carries a high level of risk. Past performance is not indicative of future results.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget minimized" id="chatWidget">
+        <div class="chat-widget-header" onclick="toggleChatWidget()">
+            <div class="flex items-center gap-2">
+                <span class="text-sm font-medium">Chat with Seller</span>
+            </div>
+            <button class="chat-widget-minimize">−</button>
+        </div>
+        <div class="chat-widget-body" id="chatBody" style="display:none;"></div>
+        <div class="chat-widget-input" style="display:none;">
+            <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="handleChatKeyPress(event)">
+            <button class="btn btn-primary btn-sm" onclick="sendChatMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/chat.js"></script>
+    <script src="../js/products.js"></script>
+    
+    <script>
+        // Initialize product page
+        document.addEventListener('DOMContentLoaded', function() {
+            ProductManager.loadProductDetails();
+        });
+    </script>
+</body>
+</html>
