@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EA Marketplace - Automated Trading Solutions</title>
+    <meta name="description" content="Professional marketplace for Expert Advisor trading bots. Discover, compare, and purchase automated trading solutions.">
+    <meta property="og:title" content="EA Marketplace - Automated Trading Solutions">
+    <meta property="og:description" content="Professional marketplace for Expert Advisor trading bots.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script src="https://cdn.jsdelivr.net/npm/recharts@2.10.3/umd/Recharts.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="8" fill="#0066FF"/>
+                    <path d="M8 20L12 12L16 18L20 8L24 20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>EAMarket</span>
+            </a>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="eas.html">EA Store</a>
+                <a href="compare.html">Compare</a>
+                <a href="performance.html">Performance</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="learn.html">Learn</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="openAccount()">Sign In</button>
+                <button class="btn btn-primary" onclick="openChat()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M18 10c0 3.866-3.582 7-8 7-1.06 0-2.07-.2-3-.58V20l-4-3H2c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v7z"/>
+                    </svg>
+                    Chat
+                </button>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">🎯 Trusted by Professional Traders</span>
+                    <h1>Automated Trading.<br><span class="gradient-text">Smarter Strategies.</span></h1>
+                    <p class="hero-subtitle">
+                        Explore, compare, and purchase professional Expert Advisors. 
+                        Chat directly with sellers, evaluate performance, and automate your trading.
+                    </p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary btn-lg" onclick="window.location.href='eas.html'">
+                            Explore EAs
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M7 4l6 6-6 6V4z"/>
+                            </svg>
+                        </button>
+                        <button class="btn btn-outline btn-lg" onclick="window.location.href='how-it-works.html'">
+                            How It Works
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <strong>10+</strong>
+                            <span>EA Products</span>
+                        </div>
+                        <div class="stat">
+                            <strong>24/7</strong>
+                            <span>Support</span>
+                        </div>
+                        <div class="stat">
+                            <strong>100%</strong>
+                            <span>Transparent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="dashboard-preview">
+                        <div class="preview-header">
+                            <div class="preview-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span>Live Trading Dashboard</span>
+                        </div>
+                        <div class="preview-chart" id="heroChart"></div>
+                        <div class="preview-stats">
+                            <div>
+                                <label>Total Trades</label>
+                                <strong>1,247</strong>
+                            </div>
+                            <div>
+                                <label>Win Rate</label>
+                                <strong>87%</strong>
+                            </div>
+                            <div>
+                                <label>Profit Factor</label>
+                                <strong>1.92</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured EAs -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Expert Advisors</h2>
+                <p>Hand-picked automated trading solutions</p>
+                <a href="eas.html" class="text-link">View All EAs →</a>
+            </div>
+            <div class="product-grid" id="featuredProducts">
+                <!-- Products will be loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section dark-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Our Marketplace</h2>
+                <p>What sets us apart from the rest</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Transparent Performance</h3>
+                    <p>Clear, honest performance metrics with no hidden data or exaggerated claims.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Tested Strategies</h3>
+                    <p>Every EA undergoes rigorous testing and validation before listing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Easy Installation</h3>
+                    <p>Step-by-step guides and support to get your EA running quickly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Direct Communication</h3>
+                    <p>Chat directly with sellers to discuss products and get answers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Regular Updates</h3>
+                    <p>EAs are maintained and updated to adapt to changing market conditions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Risk Management</h3>
+                    <p>Clear risk ratings and drawdown information for informed decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Your journey to automated trading in 4 simple steps</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose an EA</h3>
+                    <p>Browse our marketplace and select an Expert Advisor that matches your strategy.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Chat with Seller</h3>
+                    <p>Discuss the product, ask questions, and get personalized recommendations.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Purchase</h3>
+                    <p>Complete your purchase securely through our integrated payment system.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Receive & Install</h3>
+                    <p>Download your EA and follow our installation guide to get started.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Preview -->
+    <section class="section gray-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Performance Insights</h2>
+                <p>Real performance data from our EAs</p>
+            </div>
+            <div class="performance-tabs">
+                <button class="tab active" onclick="switchPerformanceTab('backtested')">Backtested</button>
+                <button class="tab" onclick="switchPerformanceTab('demo')">Demo</button>
+                <button class="tab" onclick="switchPerformanceTab('live')">Live</button>
+            </div>
+            <div class="performance-chart" id="performanceChart"></div>
+            <div class="risk-disclaimer">
+                <strong>⚠️ Risk Disclaimer:</strong> Past performance does not guarantee future results. 
+                Automated trading involves substantial risk.
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about our marketplace</p>
+            </div>
+            <div class="faq-list" id="faqPreview">
+                <!-- FAQs loaded via JavaScript -->
+            </div>
+            <div class="text-center">
+                <a href="faq.html" class="btn btn-outline">View All FAQs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Disclaimer -->
+    <section class="risk-banner">
+        <div class="container">
+            <div class="risk-content">
+                <h3>Important Risk Disclosure</h3>
+                <p>
+                    Automated trading involves substantial risk of loss and is not suitable for all investors. 
+                    No Expert Advisor can guarantee profits. Past performance, whether actual or simulated, 
+                    does not guarantee future results. Always test using a demo account first and never 
+                    trade with money you cannot afford to lose.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header" onclick="toggleChat()">
+            <div class="chat-header-info">
+                <span class="online-dot"></span>
+                <strong>Chat with Seller</strong>
+            </div>
+            <span class="chat-toggle">−</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <!-- Chat messages will be loaded here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Type a message...">
+            <button onclick="sendMessage()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M2 10L20 2L14 18L10 12L2 10Z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>EA Marketplace</h4>
+                    <p>Professional automated trading solutions.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="YouTube">YouTube</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Products</h4>
+                    <a href="eas.html">EA Store</a>
+                    <a href="compare.html">Compare EAs</a>
+                    <a href="performance.html">Performance</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="learn.html">Learning Center</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 EA Marketplace. All rights reserved.</p>
+                <p class="risk-text">
+                    Trading foreign exchange on margin carries a high level of risk and may not be suitable for all investors.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
