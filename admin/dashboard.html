@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - EA Marketplace</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <!-- Admin Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="navbar-brand">
+                <a href="dashboard.html" class="flex items-center gap-2">
+                    <div class="navbar-logo">EA</div>
+                    <span class="navbar-brand-text">Admin Panel</span>
+                </a>
+            </div>
+            <div class="navbar-actions">
+                <button class="btn btn-ghost btn-sm" onclick="AdminManager.logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard -->
+    <section class="admin-container">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <nav class="admin-nav">
+                <a href="#overview" class="admin-nav-item active" onclick="switchAdminTab('overview', this)">
+                    <span
