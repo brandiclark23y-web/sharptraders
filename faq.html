@@ -67,4 +67,53 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
-                <p class
+                <p class="footer-bottom-text">© 2024 EAMarket. All rights reserved.</p>
+                <p class="footer-risk">Risk Warning: Trading foreign exchange carries a high level of risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+    
+    <script>
+        function loadFAQs(searchTerm = '') {
+            const faqList = document.getElementById('faqList');
+            if (!faqList) return;
+            
+            let faqs = DEMO_DATA.faqs;
+            
+            if (searchTerm) {
+                faqs = faqs.filter(faq => 
+                    faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+            
+            faqList.innerHTML = faqs.map(faq => `
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>${faq.question}</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">${faq.answer}</div>
+                </div>
+            `).join('');
+        }
+        
+        function toggleFaq(element) {
+            element.parentElement.classList.toggle('active');
+        }
+        
+        function filterFAQs() {
+            const searchTerm = document.getElementById('faqSearch').value;
+            loadFAQs(searchTerm);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFAQs();
+        });
+    </script>
+</body>
+</html>
