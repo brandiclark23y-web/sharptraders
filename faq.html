@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - EA Marketplace</title>
+    <meta name="description" content="Frequently asked questions about our Expert Advisors.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <div class="navbar-brand">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="navbar-logo">EA</div>
+                    <span class="navbar-brand-text">EAMarket</span>
+                </a>
+            </div>
+            
+            <div class="navbar-menu" id="navbarMenu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="eas.html" class="navbar-link">EAs</a>
+                <a href="compare.html" class="navbar-link">Compare</a>
+                <a href="performance.html" class="navbar-link">Performance</a>
+                <a href="how-it-works.html" class="navbar-link">How It Works</a>
+                <a href="learn.html" class="navbar-link">Learn</a>
+                <a href="faq.html" class="navbar-link">FAQ</a>
+                <a href="contact.html" class="navbar-link">Contact</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <a href="account/dashboard.html" class="btn btn-ghost btn-sm" data-sign-in>Sign In</a>
+                <a href="eas.html" class="btn btn-primary btn-sm">Explore EAs</a>
+                <button class="btn btn-ghost btn-icon mobile-menu-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ Header -->
+    <section class="hero" style="padding-top:100px;padding-bottom:40px;">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p class="text-secondary">Common questions about our marketplace and EAs</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="search-input mb-8" style="max-width:400px;margin:0 auto;">
+                <input type="text" id="faqSearch" placeholder="Search FAQs..." oninput="filterFAQs()">
+            </div>
+            
+            <div class="faq-list" id="faqList">
+                <!-- FAQs loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class
