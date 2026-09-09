@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - EA Marketplace</title>
+    <meta name="description" content="Educational resources about Expert Advisors and automated trading.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <div class="navbar-brand">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="navbar-logo">EA</div>
+                    <span class="navbar-brand-text">EAMarket</span>
+                </a>
+            </div>
+            
+            <div class="navbar-menu" id="navbarMenu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="eas.html" class="navbar-link">EAs</a>
+                <a href="compare.html" class="navbar-link">Compare</a>
+                <a href="performance.html" class="navbar-link">Performance</a>
+                <a href="how-it-works.html" class="navbar-link">How It Works</a>
+                <a href="learn.html" class="navbar-link">Learn</a>
+                <a href="faq.html" class="navbar-link">FAQ</a>
+                <a href="contact.html" class="navbar-link">Contact</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <a href="account/dashboard.html" class="btn btn-ghost btn-sm" data-sign-in>Sign In</a>
+                <a href="eas.html" class="btn btn-primary btn-sm">Explore EAs</a>
+                <button class="btn btn-ghost btn-icon mobile-menu-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Learn Header -->
+    <section class="hero" style="padding-top:100px;padding-bottom:40px;">
+        <div class="container">
+            <h1>Learning Center</h1>
+            <p class="text-secondary">Educational resources for automated trading</p>
+        </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-3 gap-6" id="blogGrid">
+                <!-- Blog posts loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="footer-bottom-text">© 2024 EAMarket. All rights reserved.</p>
+                <p class="footer-risk">Risk Warning: Trading foreign exchange carries a high level of risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const blogGrid = document.getElementById('blogGrid');
+            
+            if (blogGrid && DEMO_DATA.blogPosts) {
+                blogGrid.innerHTML = DEMO_DATA.blogPosts.map(post => `
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="badge badge-primary mb-3">${post.category}</span>
+                            <h3 class="mb-2">${post.title}</h3>
+                            <p class="text-sm mb-4">${post.excerpt}</p>
+                            <div class="flex justify-between text-sm text-muted">
+                                <span>${post.readTime}</span>
+                                <span>${Formatter.date(post.date)}</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+</html>
