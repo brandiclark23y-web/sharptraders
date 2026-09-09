@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EA Store - Professional Automated Trading Solutions</title>
+    <meta name="description" content="Browse our collection of professional Expert Advisors for automated trading.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <div class="navbar-brand">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="navbar-logo">EA</div>
+                    <span class="navbar-brand-text">EAMarket</span>
+                </a>
+            </div>
+            
+            <div class="navbar-menu" id="navbarMenu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="eas.html" class="navbar-link">EAs</a>
+                <a href="compare.html" class="navbar-link">Compare</a>
+                <a href="performance.html" class="navbar-link">Performance</a>
+                <a href="learn.html" class="navbar-link">Learn</a>
+                <a href="how-it-works.html" class="navbar-link">How It Works</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <a href="account/dashboard.html" class="btn btn-ghost btn-sm" data-sign-in>Sign In</a>
+                <a href="eas.html" class="btn btn-primary btn-sm">Explore EAs</a>
+                <button class="btn btn-ghost btn-icon mobile-menu-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- EA Store Header -->
+    <section class="hero" style="padding-top:100px;padding-bottom:40px;">
+        <div class="container">
+            <h1>Expert Advisors</h1>
+            <p class="text-secondary">Browse our collection of professional automated trading solutions</p>
+        </div>
+    </section>
+
+    <!-- Store Section -->
+    <section class="section">
+        <div class="container">
+            <!-- Search and Sort -->
+            <div class="filter-container">
+                <div class="search-input" style="flex:1;">
+                    <span class="search-input-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                            <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <input type="text" id="searchInput" placeholder="Search EAs..." oninput="ProductManager.loadProductsToStore()">
+                </div>
+                
+                <select id="sortSelect" class="form-select" style="width:auto;" onchange="ProductManager.loadProductsToStore()">
+                    <option value="popular">Most Popular</option>
+                    <option value="newest">Newest</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="win-rate">Win Rate</option>
+                    <option value="drawdown">Drawdown</option>
+                </select>
+            </div>
+            
+            <!-- Filters -->
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label class="filter-label">Platform</label>
+                    <div class="filter-options">
+                        <button class="filter-option" data-filter-type="platform" data-value="MT4" onclick="ProductManager.setFilter('platform', 'MT4', this)">MT4</button>
+                        <button class="filter-option" data-filter-type="platform" data-value="MT5" onclick="ProductManager.setFilter('platform', 'MT5', this)">MT5</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Strategy</label>
+                    <div class="filter-options">
+                        <button class="filter-option" data-filter-type="strategy" data-value="Scalping" onclick="ProductManager.setFilter('strategy', 'Scalping', this)">Scalping</button>
+                        <button class="filter-option" data-filter-type="strategy" data-value="Trend" onclick="ProductManager.setFilter('strategy', 'Trend', this)">Trend</button>
+                        <button class="filter-option" data-filter-type="strategy" data-value="Multi-Strategy" onclick="ProductManager.setFilter('strategy', 'Multi-Strategy', this)">Multi-Strategy</button>
+                        <button class="filter-option" data-filter-type="strategy" data-value="Breakout" onclick="ProductManager.setFilter('strategy', 'Breakout', this)">Breakout</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Risk Level</label>
+                    <div class="filter-options">
+                        <button class="filter-option" data-filter-type="risk" data-value="Low" onclick="ProductManager.setFilter('risk', 'Low', this)">Low Risk</button>
+                        <button class="filter-option" data-filter-type="risk" data-value="Medium" onclick="ProductManager.setFilter('risk', 'Medium', this)">Medium Risk</button>
+                        <button class="filter-option" data-filter-type="risk" data-value="High" onclick="ProductManager.setFilter('risk', 'High', this)">High Risk</button>
+                    </div>
+                </div>
+                
+                <button class="btn btn-ghost btn-sm" onclick="ProductManager.clearFilters()">Clear Filters</button>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="product-grid" id="productGrid">
+                <!-- Products loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="footer-bottom-text">© 2024 EAMarket. All rights reserved.</p>
+                <p class="footer-risk">
+                    Risk Warning: Trading foreign exchange carries a high level of risk. Past performance is not indicative of future results.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget minimized" id="chatWidget">
+        <div class="chat-widget-header" onclick="toggleChatWidget()">
+            <div class="flex items-center gap-2">
+                <span class="text-sm font-medium">Chat with Seller</span>
+            </div>
+            <button class="chat-widget-minimize">−</button>
+        </div>
+        <div class="chat-widget-body" id="chatBody" style="display:none;"></div>
+        <div class="chat-widget-input" style="display:none;">
+            <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="handleChatKeyPress(event)">
+            <button class="btn btn-primary btn-sm" onclick="sendChatMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/chat.js"></script>
+    
+    <script>
+        // Initialize store
